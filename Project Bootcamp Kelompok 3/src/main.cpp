@@ -39,9 +39,13 @@ unsigned long previousMillis = 0;
 #define PH_PIN 4
 #define DO_PIN 5
 #define SERVO_ADD_WATER_PIN 14
+#define SERVO_ADD_PHUP_PIN 16
+#define SERVO_ADD_PHDOWN_PIN 17
 #define ledPin 13
 LiquidCrystal_I2C lcd(0x27,20,4);
 Servo servoAddWater;
+Servo servoAddpHUp;
+Servo servoAddpHDown;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -52,8 +56,11 @@ OneWire oneWire(TEMP_PIN);
 DallasTemperature DS18B20(&oneWire);
 float watertempC;
 float Ph;
-float tempUpp=32;
-float tempLow=27;
+float tempUpp = 32;
+float tempLow = 27;
+float LowestpH = 5.5;
+float HighestpH = 6.5;
+
 float floatMap(float x, float in_min, float in_max, float out_min, float out_max) {
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
@@ -132,6 +139,10 @@ void setup() {
   DS18B20.begin();    
   servoAddWater.attach(SERVO_ADD_WATER_PIN);
   servoAddWater.write(0);
+  servoAddpHUp.attach(SERVO_ADD_PHUP_PIN);
+  servoAddpHUp.write(0);
+  servoAddpHDown.attach(SERVO_ADD_PHDOWN_PIN);
+  servoAddpHDown.write(0);
 }
 
 void loop() {
@@ -186,7 +197,7 @@ void loop() {
   lcd.print("water t:");
   lcd.print(watertempC,2); 
   lcd.print((char)223);
-  lcd.print(" C");
+  lcd.print("C");
 
   lcd.setCursor(0,1);
   lcd.print("pH:");
@@ -200,15 +211,30 @@ void loop() {
   lcd.setCursor(0,3);
   lcd.print("t:");
   lcd.print(tempC);
-  lcd.print(" C");
+  lcd.print((char)223);
+  lcd.print("C");
 
   if(watertempC>tempUpp){
     servoAddWater.write(90);
   } else if(watertempC<tempLow){
     servoAddWater.write(0);
   }
-
-  delay(500);
+  if(Ph<LowestpH){
+    servoAddpHUp.write(90);
+    delay(1000);
+    servoAddpHUp.write(0);
+    servoAddWater.write(90);
+    delay(3000);
+    servoAddWater.write(0);
+  } else if(Ph>HighestpH){
+    servoAddpHDown.write(90);
+    delay(1000);
+    servoAddpHDown.write(0);
+    servoAddWater.write(90);
+    delay(3000);
+    servoAddWater.write(0);
+  }
+  
   if (!client.connected()) {
     mqttConnect();
   }
