@@ -1,6 +1,6 @@
 [
     {
-        "id": "76a17a704aeca087",
+        "id": "e122e9efdf5f5c92",
         "type": "tab",
         "label": "ESP DHT MQTT Flow",
         "disabled": false,
@@ -37,7 +37,7 @@
     {
         "id": "69cc7bdf.e7e0e4",
         "type": "ui_tab",
-        "name": "Project Bootcamp",
+        "name": "ON/OFF",
         "icon": "dashboard",
         "order": 1,
         "disabled": false,
@@ -58,21 +58,23 @@
         "id": "22dc9fee.af14c",
         "type": "ui_group",
         "name": "Temperature",
-        "tab": "69cc7bdf.e7e0e4",
+        "tab": "bfd2dc99ef48e24a",
         "order": 2,
         "disp": true,
         "width": "6",
-        "collapse": false
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "a7e6f3f0.afc3c",
         "type": "ui_group",
         "name": "Humidity",
-        "tab": "69cc7bdf.e7e0e4",
+        "tab": "bfd2dc99ef48e24a",
         "order": 3,
         "disp": true,
         "width": "6",
-        "collapse": false
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "73d6a820553f6b41",
@@ -191,30 +193,11 @@
         "className": ""
     },
     {
-        "id": "e728fafa4044cf6b",
-        "type": "ui_tab",
-        "name": "pH dasboard",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "ef324b5ce32116ae",
         "type": "ui_group",
         "name": "pH Dashboard",
-        "tab": "69cc7bdf.e7e0e4",
+        "tab": "bfd2dc99ef48e24a",
         "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "063b1cb5e8bdb665",
-        "type": "ui_group",
-        "name": "Water Temp",
-        "tab": "69cc7bdf.e7e0e4",
-        "order": 5,
         "disp": true,
         "width": "6",
         "collapse": false,
@@ -224,7 +207,7 @@
         "id": "9dffe5284ed03970",
         "type": "ui_group",
         "name": "Water Temp",
-        "tab": "e728fafa4044cf6b",
+        "tab": "bfd2dc99ef48e24a",
         "order": 6,
         "disp": true,
         "width": "6",
@@ -235,7 +218,7 @@
         "id": "998f9b05b528d0d7",
         "type": "ui_group",
         "name": "DO",
-        "tab": "69cc7bdf.e7e0e4",
+        "tab": "bfd2dc99ef48e24a",
         "order": 7,
         "disp": true,
         "width": "7",
@@ -243,9 +226,36 @@
         "className": ""
     },
     {
-        "id": "3f6e5071484b3aa4",
+        "id": "bfd2dc99ef48e24a",
+        "type": "ui_tab",
+        "name": "Sensor",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "27813ec4c4a72fe4",
+        "type": "ui_group",
+        "name": "Water Level",
+        "tab": "bfd2dc99ef48e24a",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "983deed63239e94f",
+        "type": "ui_tab",
+        "name": "pH dasboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "56fd723273743215",
         "type": "ui_button",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "group": "4350bafe.7c9f64",
         "order": 2,
@@ -266,14 +276,14 @@
         "y": 80,
         "wires": [
             [
-                "6106a3d8e438b9ce"
+                "039a98c3857f4174"
             ]
         ]
     },
     {
-        "id": "65523b825983198a",
+        "id": "f86b028c4b268dad",
         "type": "ui_button",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "group": "4350bafe.7c9f64",
         "order": 3,
@@ -294,14 +304,14 @@
         "y": 120,
         "wires": [
             [
-                "6106a3d8e438b9ce"
+                "039a98c3857f4174"
             ]
         ]
     },
     {
-        "id": "bd8fc9723e593f1d",
+        "id": "4bac95f1d06abb3f",
         "type": "debug",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -316,9 +326,9 @@
         "wires": []
     },
     {
-        "id": "6b643b271e89599e",
+        "id": "54d04746ff7593c8",
         "type": "debug",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -333,9 +343,9 @@
         "wires": []
     },
     {
-        "id": "077102bf93d0bca8",
+        "id": "ebabb0f5f26ceaab",
         "type": "ui_gauge",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "group": "22dc9fee.af14c",
         "order": 1,
@@ -361,9 +371,9 @@
         "wires": []
     },
     {
-        "id": "64e0d3b7fa1bac9e",
+        "id": "8d3ebe111ba606c8",
         "type": "ui_chart",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "group": "22dc9fee.af14c",
         "order": 2,
@@ -405,9 +415,9 @@
         ]
     },
     {
-        "id": "092f675c43bac7d2",
+        "id": "2319c0acd6056efa",
         "type": "ui_chart",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "group": "a7e6f3f0.afc3c",
         "order": 2,
@@ -449,9 +459,9 @@
         ]
     },
     {
-        "id": "1ae13ef553074980",
+        "id": "5119f6f190dc79f0",
         "type": "ui_gauge",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "group": "a7e6f3f0.afc3c",
         "order": 1,
@@ -477,9 +487,9 @@
         "wires": []
     },
     {
-        "id": "6c8dccf8301a0c30",
+        "id": "d62ee27e41cf1e8a",
         "type": "ui_text",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "group": "4350bafe.7c9f64",
         "order": 1,
         "width": "0",
@@ -498,9 +508,9 @@
         "wires": []
     },
     {
-        "id": "6106a3d8e438b9ce",
+        "id": "039a98c3857f4174",
         "type": "mqtt out",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "topic": "ESP32/control",
         "qos": "0",
@@ -516,9 +526,9 @@
         "wires": []
     },
     {
-        "id": "cceb1b89807a7f78",
+        "id": "3b6e13f918eb084e",
         "type": "debug",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -533,9 +543,9 @@
         "wires": []
     },
     {
-        "id": "27f61858716b1115",
+        "id": "265d316c00ab0ff2",
         "type": "mqtt in",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "topic": "ESP32/temperature",
         "qos": "2",
@@ -549,16 +559,16 @@
         "y": 280,
         "wires": [
             [
-                "6b643b271e89599e",
-                "077102bf93d0bca8",
-                "64e0d3b7fa1bac9e"
+                "54d04746ff7593c8",
+                "ebabb0f5f26ceaab",
+                "8d3ebe111ba606c8"
             ]
         ]
     },
     {
-        "id": "921d4195674d7692",
+        "id": "4bd0b1c9ae651576",
         "type": "mqtt in",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "topic": "ESP32/status",
         "qos": "2",
@@ -572,15 +582,15 @@
         "y": 160,
         "wires": [
             [
-                "cceb1b89807a7f78",
-                "6c8dccf8301a0c30"
+                "3b6e13f918eb084e",
+                "d62ee27e41cf1e8a"
             ]
         ]
     },
     {
-        "id": "cb627d381372dfb7",
+        "id": "c77fcfe5346c943b",
         "type": "mqtt in",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "topic": "ESP32/humidity",
         "qos": "2",
@@ -594,16 +604,16 @@
         "y": 420,
         "wires": [
             [
-                "bd8fc9723e593f1d",
-                "1ae13ef553074980",
-                "092f675c43bac7d2"
+                "4bac95f1d06abb3f",
+                "5119f6f190dc79f0",
+                "2319c0acd6056efa"
             ]
         ]
     },
     {
-        "id": "18832f1503531348",
+        "id": "97393d43c3e76e06",
         "type": "debug",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -618,9 +628,9 @@
         "wires": []
     },
     {
-        "id": "14bbab584042771e",
+        "id": "12624f3516c7862a",
         "type": "ui_chart",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "group": "ef324b5ce32116ae",
         "order": 2,
@@ -662,9 +672,9 @@
         ]
     },
     {
-        "id": "7382d669119f1945",
+        "id": "1d985e4a24267b05",
         "type": "ui_gauge",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "group": "ef324b5ce32116ae",
         "order": 1,
@@ -690,9 +700,9 @@
         "wires": []
     },
     {
-        "id": "5f14faef80a3b81f",
+        "id": "8504e20428571dc3",
         "type": "mqtt in",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "topic": "ESP32/ph",
         "qos": "2",
@@ -706,16 +716,16 @@
         "y": 160,
         "wires": [
             [
-                "18832f1503531348",
-                "7382d669119f1945",
-                "14bbab584042771e"
+                "97393d43c3e76e06",
+                "1d985e4a24267b05",
+                "12624f3516c7862a"
             ]
         ]
     },
     {
-        "id": "674457f0194097a7",
+        "id": "b469bda8a1b4e802",
         "type": "debug",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -725,16 +735,16 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 550,
-        "y": 540,
+        "x": 970,
+        "y": 360,
         "wires": []
     },
     {
-        "id": "876c9e8a723ebb07",
+        "id": "f7093760176a46e2",
         "type": "ui_chart",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
-        "group": "063b1cb5e8bdb665",
+        "group": "9dffe5284ed03970",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -767,18 +777,18 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 570,
-        "y": 620,
+        "x": 990,
+        "y": 440,
         "wires": [
             []
         ]
     },
     {
-        "id": "434abd0395c7f653",
+        "id": "2cc8efd62d1a81a4",
         "type": "ui_gauge",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
-        "group": "063b1cb5e8bdb665",
+        "group": "9dffe5284ed03970",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -797,14 +807,14 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 570,
-        "y": 580,
+        "x": 990,
+        "y": 400,
         "wires": []
     },
     {
-        "id": "206ab01c17b00dd3",
+        "id": "509b6a528f0c6ca8",
         "type": "mqtt in",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
         "topic": "ESP32/waterTemp",
         "qos": "2",
@@ -814,59 +824,93 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 350,
-        "y": 580,
+        "x": 770,
+        "y": 400,
         "wires": [
             [
-                "674457f0194097a7",
-                "434abd0395c7f653",
-                "876c9e8a723ebb07"
+                "b469bda8a1b4e802",
+                "2cc8efd62d1a81a4",
+                "f7093760176a46e2"
             ]
         ]
     },
     {
-        "id": "7bfd3686e2ac8976",
-        "type": "debug",
-        "z": "76a17a704aeca087",
+        "id": "848235ad85009044",
+        "type": "mqtt in",
+        "z": "e122e9efdf5f5c92",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 970,
-        "y": 380,
+        "topic": "ESP32/waterLevel",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "66bbc32d.7aec1c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 730,
+        "y": 280,
+        "wires": [
+            [
+                "1fc7baafebcfd296",
+                "225e1df7259e5708",
+                "130172ea0d47362d"
+            ]
+        ]
+    },
+    {
+        "id": "225e1df7259e5708",
+        "type": "ui_gauge",
+        "z": "e122e9efdf5f5c92",
+        "name": "",
+        "group": "27813ec4c4a72fe4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Water Level Gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "400",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 990,
+        "y": 280,
         "wires": []
     },
     {
-        "id": "d9db7b7ecb1b73c0",
+        "id": "130172ea0d47362d",
         "type": "ui_chart",
-        "z": "76a17a704aeca087",
+        "z": "e122e9efdf5f5c92",
         "name": "",
-        "group": "998f9b05b528d0d7",
-        "order": 2,
+        "group": "27813ec4c4a72fe4",
+        "order": 0,
         "width": 0,
         "height": 0,
-        "label": "DO Chart",
+        "label": "Water Level Chart",
         "chartType": "line",
         "legend": "false",
         "xformat": "HH:mm:ss",
         "interpolate": "linear",
         "nodata": "",
         "dot": false,
-        "ymin": "0",
-        "ymax": "100",
-        "removeOlder": "1",
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
         "removeOlderPoints": "",
-        "removeOlderUnit": "60",
+        "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
         "useUTC": false,
         "colors": [
-            "#2ca02c",
+            "#1f77b4",
             "#aec7e8",
             "#ff7f0e",
             "#2ca02c",
@@ -879,61 +923,27 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 960,
-        "y": 460,
+        "x": 990,
+        "y": 320,
         "wires": [
             []
         ]
     },
     {
-        "id": "417b7957d1d0c430",
-        "type": "ui_gauge",
-        "z": "76a17a704aeca087",
+        "id": "1fc7baafebcfd296",
+        "type": "debug",
+        "z": "e122e9efdf5f5c92",
         "name": "",
-        "group": "998f9b05b528d0d7",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "DO Gauge",
-        "label": "%",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#f7bdff",
-            "#ff52df",
-            "#ff00dd"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "diff": false,
-        "className": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
         "x": 970,
-        "y": 420,
+        "y": 240,
         "wires": []
-    },
-    {
-        "id": "e6773960c1f4947f",
-        "type": "mqtt in",
-        "z": "76a17a704aeca087",
-        "name": "",
-        "topic": "ESP32/do",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "66bbc32d.7aec1c",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 740,
-        "y": 420,
-        "wires": [
-            [
-                "7bfd3686e2ac8976",
-                "417b7957d1d0c430",
-                "d9db7b7ecb1b73c0"
-            ]
-        ]
     }
 ]
