@@ -89,8 +89,11 @@ void mqttcallback(char* topic, byte* payload, unsigned int length) {
   char messageChar = (char)payload[0];
   if (messageChar == '1') {
     activeStatus = true;
+    lcd.backlight();
   } else if (messageChar == '0') {
     activeStatus = false;
+    lcd.clear();
+    lcd.noBacklight();
   }
   showStatus(activeStatus);
 }
@@ -135,7 +138,6 @@ void setup() {
   pinMode(ECHO_PIN, INPUT);
 
   lcd.init();
-  lcd.backlight();
   DS18B20.begin();    
   servoAddWater.attach(SERVO_ADD_WATER_PIN);
   servoAddWater.write(0);
@@ -146,95 +148,6 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(TRIG_PIN, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(TRIG_PIN, LOW);
-
-  duration_us = pulseIn(ECHO_PIN, HIGH);
-
-  distance_cm = 0.017 * duration_us;
-
-  Serial.print("distance: ");
-  Serial.print(distance_cm);
-  Serial.println(" cm");
-
-  delay(500);
-
-
-  float humi  = dhtSensor.readHumidity();
-  float tempC = dhtSensor.readTemperature();
-  float tempF = dhtSensor.readTemperature(true);
-
-  if ( isnan(tempC) || isnan(tempF) || isnan(humi)) {
-    Serial.println("Failed to read from DHT sensor!");
-  } else {
-    Serial.print("Humidity: ");
-    Serial.print(humi);
-    Serial.print("%");
-
-    Serial.print("  |  ");
-
-    Serial.print("Temperature: ");
-    Serial.print(tempC);
-    Serial.print("°C  ~  ");
-    Serial.print(tempF);
-    Serial.println("°F");
-  }
-
-  DS18B20.requestTemperatures();       
-  watertempC = DS18B20.getTempCByIndex(0);  
-  Serial.print("Water Temperature: ");
-  Serial.print(watertempC);
-  Serial.println("°C");
-
-  int analogPh = analogRead(PH_PIN);
-
-  Ph = floatMap (analogPh, 0, 4095, 0, 14);
-
-  lcd.clear();
-
-  lcd.setCursor(0,0);
-  lcd.print("water t:");
-  lcd.print(watertempC,2); 
-  lcd.print((char)223);
-  lcd.print("C");
-
-  lcd.setCursor(0,1);
-  lcd.print("pH:");
-  lcd.print(Ph);
-
-  lcd.setCursor(0,2);
-  lcd.print("Hum:");
-  lcd.print(humi);
-  lcd.print("%");
-
-  lcd.setCursor(0,3);
-  lcd.print("t:");
-  lcd.print(tempC);
-  lcd.print((char)223);
-  lcd.print("C");
-
-  if(watertempC>tempUpp){
-    servoAddWater.write(90);
-  } else if(watertempC<tempLow){
-    servoAddWater.write(0);
-  }
-  if(Ph<LowestpH){
-    servoAddpHUp.write(90);
-    delay(1000);
-    servoAddpHUp.write(0);
-    servoAddWater.write(90);
-    delay(3000);
-    servoAddWater.write(0);
-  } else if(Ph>HighestpH){
-    servoAddpHDown.write(90);
-    delay(1000);
-    servoAddpHDown.write(0);
-    servoAddWater.write(90);
-    delay(3000);
-    servoAddWater.write(0);
-  }
-  
   if (!client.connected()) {
     mqttConnect();
   }
@@ -245,24 +158,111 @@ void loop() {
   bool shouldPublish = (currentTime - previousMillis) > interval;
   if (shouldPublish && activeStatus) {
     previousMillis = currentTime;
-    
-    char statusHum[6];
-    char statusTemp[6];
-    char statusWater[6];
-    char statusPh[6];
-    char statusWaterLevel[6];
 
-    snprintf(statusHum, 6, "%.2f", humi);
-    snprintf(statusTemp, 6, "%.2f", tempC);
-    snprintf(statusWater, 6, "%.2f", DS18B20.getTempCByIndex(0));
-    snprintf(statusPh, 6, "%.2f", Ph);
-    snprintf(statusWaterLevel, 6, "%.2f", distance_cm);
-    client.publish(humidityTopic, statusHum);
-    client.publish(temperatureTopic, statusTemp);
-    client.publish(waterTopic, statusWater);
-    client.publish(phTopic, statusPh);
-    client.publish(waterLevelTopic, statusWaterLevel);
-  }
+      digitalWrite(TRIG_PIN, HIGH);
+      delayMicroseconds(10);
+      digitalWrite(TRIG_PIN, LOW);
+
+      duration_us = pulseIn(ECHO_PIN, HIGH);
+
+      distance_cm = 0.017 * duration_us;
+
+      Serial.print("distance: ");
+      Serial.print(distance_cm);
+      Serial.println(" cm");
+
+      delay(500);
+
+      float humi  = dhtSensor.readHumidity();
+      float tempC = dhtSensor.readTemperature();
+      float tempF = dhtSensor.readTemperature(true);
+
+      if ( isnan(tempC) || isnan(tempF) || isnan(humi)) {
+      Serial.println("Failed to read from DHT sensor!");
+      } else {
+      Serial.print("Humidity: ");
+      Serial.print(humi);
+      Serial.print("%");
+
+      Serial.print("  |  ");
+
+      Serial.print("Temperature: ");
+      Serial.print(tempC);
+      Serial.print("°C  ~  ");
+      Serial.print(tempF);
+      Serial.println("°F");
+      }
+
+      DS18B20.requestTemperatures();       
+      watertempC = DS18B20.getTempCByIndex(0);  
+      Serial.print("Water Temperature: ");
+      Serial.print(watertempC);
+      Serial.println("°C");
+
+      int analogPh = analogRead(PH_PIN);
+
+      Ph = floatMap (analogPh, 0, 4095, 0, 14);
+
+      lcd.clear();
+      lcd.setCursor(0,0);
+      lcd.print("water t:");
+      lcd.print(watertempC,2); 
+      lcd.print((char)223);
+      lcd.print("C");
+
+      lcd.setCursor(0,1);
+      lcd.print("pH:");
+      lcd.print(Ph);
+
+      lcd.setCursor(0,2);
+      lcd.print("Hum:");
+      lcd.print(humi);
+      lcd.print("%");
+
+      lcd.setCursor(0,3);
+      lcd.print("t:");
+      lcd.print(tempC);
+      lcd.print("C");
+
+      if(watertempC>tempUpp){
+        servoAddWater.write(90);
+      } else if(watertempC<tempLow){
+        servoAddWater.write(0);
+      }
+
+      if(Ph<LowestpH){
+        servoAddpHUp.write(90);
+        delay(1000);
+        servoAddpHUp.write(0);
+        servoAddWater.write(90);
+        delay(3000);
+        servoAddWater.write(0);
+      } else if(Ph>HighestpH){
+        servoAddpHDown.write(90);
+        delay(1000);
+        servoAddpHDown.write(0);
+        servoAddWater.write(90);
+        delay(3000);
+        servoAddWater.write(0);
+      }
+    
+      char statusHum[6];
+      char statusTemp[6];
+      char statusWater[6];
+      char statusPh[6];
+      char statusWaterLevel[6];
+
+      snprintf(statusHum, 6, "%.2f", humi);
+      snprintf(statusTemp, 6, "%.2f", tempC);
+      snprintf(statusWater, 6, "%.2f", DS18B20.getTempCByIndex(0));
+      snprintf(statusPh, 6, "%.2f", Ph);
+      snprintf(statusWaterLevel, 6, "%.2f", distance_cm);
+      client.publish(humidityTopic, statusHum);
+      client.publish(temperatureTopic, statusTemp);
+      client.publish(waterTopic, statusWater);
+      client.publish(phTopic, statusPh);
+      client.publish(waterLevelTopic, statusWaterLevel);
+    }
 
     delay(500);
   }
