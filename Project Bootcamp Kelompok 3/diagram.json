@@ -53,7 +53,9 @@
       "left": -288.55,
       "rotate": 90,
       "attrs": { "value": "1000" }
-    }
+    },
+    { "type": "wokwi-servo", "id": "servo2", "top": 170.8, "left": -115.2, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo3", "top": 286, "left": -172.8, "attrs": {} }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
@@ -95,7 +97,13 @@
     [ "r1:1", "bb1:9b.g", "", [ "$bb" ] ],
     [ "r1:2", "bb1:bp.7", "", [ "$bb" ] ],
     [ "r2:1", "bb1:tp.3", "", [ "$bb" ] ],
-    [ "r2:2", "bb1:4t.c", "", [ "$bb" ] ]
+    [ "r2:2", "bb1:4t.c", "", [ "$bb" ] ],
+    [ "servo3:GND", "esp:GND.1", "black", [ "v-67.2", "h28.8", "v-192" ] ],
+    [ "servo2:GND", "esp:GND.3", "black", [ "h-9.6", "v-76.8", "h76.8" ] ],
+    [ "servo2:V+", "esp:5V", "red", [ "h-76.8", "v-163.1" ] ],
+    [ "servo2:PWM", "esp:16", "green", [ "h-67.2", "v-287.8" ] ],
+    [ "servo3:V+", "esp:5V", "red", [ "h-38.4", "v-278.3" ] ],
+    [ "servo3:PWM", "esp:17", "green", [ "h9.6", "v0.2", "h-67.2", "v-326.4" ] ]
   ],
   "dependencies": {}
 }
