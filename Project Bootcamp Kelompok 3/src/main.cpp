@@ -52,7 +52,6 @@ OneWire oneWire(TEMP_PIN);
 DallasTemperature DS18B20(&oneWire);
 float watertempC;
 float Ph;
-float DO;
 float tempUpp=32;
 float tempLow=27;
 float floatMap(float x, float in_min, float in_max, float out_min, float out_max) {
@@ -178,10 +177,8 @@ void loop() {
   Serial.println("°C");
 
   int analogPh = analogRead(PH_PIN);
-  int analogDO = analogRead(DO_PIN);
 
   Ph = floatMap (analogPh, 0, 4095, 0, 14);
-  DO = floatMap (analogDO, 0, 4095, 0, 40);
 
   lcd.clear();
 
@@ -207,7 +204,9 @@ void loop() {
 
   if(watertempC>tempUpp){
     servoAddWater.write(90);
-  };
+  } else if(watertempC<tempLow){
+    servoAddWater.write(0);
+  }
 
   delay(500);
   if (!client.connected()) {
@@ -225,20 +224,17 @@ void loop() {
     char statusTemp[6];
     char statusWater[6];
     char statusPh[6];
-    char statusDo[6];
     char statusWaterLevel[6];
 
     snprintf(statusHum, 6, "%.2f", humi);
     snprintf(statusTemp, 6, "%.2f", tempC);
     snprintf(statusWater, 6, "%.2f", DS18B20.getTempCByIndex(0));
     snprintf(statusPh, 6, "%.2f", Ph);
-    snprintf(statusDo, 6, "%.2f", DO);
     snprintf(statusWaterLevel, 6, "%.2f", distance_cm);
     client.publish(humidityTopic, statusHum);
     client.publish(temperatureTopic, statusTemp);
     client.publish(waterTopic, statusWater);
     client.publish(phTopic, statusPh);
-    client.publish(doTopic, statusDo);
     client.publish(waterLevelTopic, statusWaterLevel);
   }
 
