@@ -7,252 +7,6 @@
         "info": ""
     },
     {
-        "id": "66bbc32d.7aec1c",
-        "type": "mqtt-broker",
-        "name": "Test",
-        "broker": "broker.emqx.io",
-        "port": "1883",
-        "clientid": "",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "autoUnsubscribe": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "willMsg": {},
-        "userProps": "",
-        "sessionExpiry": ""
-    },
-    {
-        "id": "69cc7bdf.e7e0e4",
-        "type": "ui_tab",
-        "name": "ON/OFF",
-        "icon": "dashboard",
-        "order": 1,
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "4350bafe.7c9f64",
-        "type": "ui_group",
-        "name": "Control",
-        "tab": "69cc7bdf.e7e0e4",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "22dc9fee.af14c",
-        "type": "ui_group",
-        "name": "Temperature",
-        "tab": "bfd2dc99ef48e24a",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "a7e6f3f0.afc3c",
-        "type": "ui_group",
-        "name": "Humidity",
-        "tab": "bfd2dc99ef48e24a",
-        "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "73d6a820553f6b41",
-        "type": "ui_base",
-        "theme": {
-            "name": "theme-light",
-            "lightTheme": {
-                "default": "#0094CE",
-                "baseColor": "#0094CE",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": true,
-                "reset": false
-            },
-            "darkTheme": {
-                "default": "#097479",
-                "baseColor": "#097479",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
-            },
-            "customTheme": {
-                "name": "Untitled Theme 1",
-                "default": "#4B7930",
-                "baseColor": "#4B7930",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-            },
-            "themeState": {
-                "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
-                    "edited": false
-                },
-                "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
-                    "edited": false
-                },
-                "page-backgroundColor": {
-                    "value": "#fafafa",
-                    "edited": false
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-textColor": {
-                    "value": "#1bbfff",
-                    "edited": false
-                },
-                "group-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "widget-textColor": {
-                    "value": "#111111",
-                    "edited": false
-                },
-                "widget-backgroundColor": {
-                    "value": "#0094ce",
-                    "edited": false
-                },
-                "widget-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "base-font": {
-                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-                }
-            },
-            "angularTheme": {
-                "primary": "indigo",
-                "accents": "blue",
-                "warn": "red",
-                "background": "grey",
-                "palette": "light"
-            }
-        },
-        "site": {
-            "name": "Node-RED Dashboard",
-            "hideToolbar": "false",
-            "allowSwipe": "false",
-            "lockMenu": "false",
-            "allowTempTheme": "true",
-            "dateFormat": "DD/MM/YYYY",
-            "sizes": {
-                "sx": 48,
-                "sy": 48,
-                "gx": 6,
-                "gy": 6,
-                "cx": 6,
-                "cy": 6,
-                "px": 0,
-                "py": 0
-            }
-        }
-    },
-    {
-        "id": "32412b632887b689",
-        "type": "ui_tab",
-        "name": "Home",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "3be95d8b6d24c872",
-        "type": "ui_group",
-        "name": "Default",
-        "tab": "32412b632887b689",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "ef324b5ce32116ae",
-        "type": "ui_group",
-        "name": "pH Dashboard",
-        "tab": "bfd2dc99ef48e24a",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "9dffe5284ed03970",
-        "type": "ui_group",
-        "name": "Water Temp",
-        "tab": "bfd2dc99ef48e24a",
-        "order": 6,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "998f9b05b528d0d7",
-        "type": "ui_group",
-        "name": "DO",
-        "tab": "bfd2dc99ef48e24a",
-        "order": 7,
-        "disp": true,
-        "width": "7",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "bfd2dc99ef48e24a",
-        "type": "ui_tab",
-        "name": "Sensor",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "27813ec4c4a72fe4",
-        "type": "ui_group",
-        "name": "Water Level",
-        "tab": "bfd2dc99ef48e24a",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "983deed63239e94f",
-        "type": "ui_tab",
-        "name": "pH dasboard",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "56fd723273743215",
         "type": "ui_button",
         "z": "e122e9efdf5f5c92",
@@ -353,7 +107,7 @@
         "height": 0,
         "gtype": "gage",
         "title": "Temp Gauge",
-        "label": "Celcius",
+        "label": "°C",
         "format": "{{value}}",
         "min": "10",
         "max": "50",
@@ -796,7 +550,7 @@
         "title": "Water Temp Gauge",
         "label": "°C",
         "format": "{{value}}",
-        "min": 0,
+        "min": "-10",
         "max": "100",
         "colors": [
             "#fff4bd",
@@ -868,7 +622,7 @@
         "height": 0,
         "gtype": "gage",
         "title": "Water Level Gauge",
-        "label": "units",
+        "label": "Cm",
         "format": "{{value}}",
         "min": 0,
         "max": "400",
@@ -945,5 +699,116 @@
         "x": 970,
         "y": 240,
         "wires": []
+    },
+    {
+        "id": "4350bafe.7c9f64",
+        "type": "ui_group",
+        "name": "Control",
+        "tab": "69cc7bdf.e7e0e4",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "22dc9fee.af14c",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "bfd2dc99ef48e24a",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a7e6f3f0.afc3c",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "bfd2dc99ef48e24a",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "66bbc32d.7aec1c",
+        "type": "mqtt-broker",
+        "name": "Test",
+        "broker": "broker.emqx.io",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ef324b5ce32116ae",
+        "type": "ui_group",
+        "name": "pH Dashboard",
+        "tab": "bfd2dc99ef48e24a",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9dffe5284ed03970",
+        "type": "ui_group",
+        "name": "Water Temp",
+        "tab": "bfd2dc99ef48e24a",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "27813ec4c4a72fe4",
+        "type": "ui_group",
+        "name": "Water Level",
+        "tab": "bfd2dc99ef48e24a",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "69cc7bdf.e7e0e4",
+        "type": "ui_tab",
+        "name": "ON/OFF",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "bfd2dc99ef48e24a",
+        "type": "ui_tab",
+        "name": "Sensor",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
     }
 ]
